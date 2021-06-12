@@ -6,12 +6,12 @@ pipeline {
         stage('Dev Deployment') {
                steps {
                  			  script {
-                            if ((BRANCH_NAME ==~ /(DEV)/)){
+                            if ((BRANCH_NAME ==~ /(PROD)/)){
                     container('helm') {  
           withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KUBECONFIG')]) {
           sh '''
           export KUBECONFIG=$KUBECONFIG
-          helm install nginx bitnami/nginx --namespace dev
+          helm install nginx bitnami/nginx --namespace prod
           '''
         }
         }
