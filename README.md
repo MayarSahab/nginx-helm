@@ -10,6 +10,6 @@ Here are some assumptions:
 - Kubeconfig is adjusted to be used for the two namespaces with the same user.
 - Kubeconfig is stored as a Secretfile inside Jenkins Credentials (Withcredentials).
 - Two stages for deployment on both namespaces with parameter "--namepsace" to override the default namespace configured inside the Chart.
-- Kubernetes Jenkins plugin is used to add the cluster connection, agents with the images and the needed pod configuration.
-- Image used by "Kubernetes" agent should have helm installed inside it.
+- Kubernetes Jenkins plugin is used to add the cluster connection, agents with the Containers images and the needed pod configuration.
+- Container Image used by "Kubernetes" agent should have helm installed inside it.
 
