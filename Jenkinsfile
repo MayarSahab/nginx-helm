@@ -5,6 +5,8 @@ pipeline {
     stages {         
         stage('Dev Deployment') {
                steps {
+                 			  script {
+                            if ((BRANCH_NAME ==~ /(DEV)/)){
                     container('helm') {  
           withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KUBECONFIG')]) {
           sh '''
@@ -14,9 +16,7 @@ pipeline {
         }
         }
 }
-}
-       stage('Stage Deployment') {
-               steps {
+                            if ((BRANCH_NAME ==~ /(STAGE)/)){
                     container('helm') {  
           withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KUBECONFIG')]) {
           sh '''
@@ -28,4 +28,6 @@ pipeline {
 }
 }
 } 
+}
+    }
 }
