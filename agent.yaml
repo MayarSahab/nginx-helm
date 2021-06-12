@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kuberneres
+  labels:
+    jenkins: slave
+    jenkins/docker: true
+spec:
+  activeDeadlineSeconds: 900
+  containers:
+   - name: helm
+     image: alpine/helm:latest
+     imagePullPolicy: IfNotPresent
+     command:
+     - cat
+     tty: true
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock
