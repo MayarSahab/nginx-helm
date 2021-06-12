@@ -3,7 +3,7 @@ pipeline {
         label "kubernetes"
                }  
     stages {         
-        stage('Dev Deployment') {
+        stage('Deployment') {
                steps {
                  			  script {
                             if ((BRANCH_NAME ==~ /(PROD)/)){
