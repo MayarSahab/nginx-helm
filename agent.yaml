@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kuberneres
+  name: kubernetes
   labels:
     jenkins: slave
     jenkins/docker: true
