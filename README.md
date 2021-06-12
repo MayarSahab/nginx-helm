@@ -6,7 +6,7 @@
 # Notes on the pipeline
 Here are some assumptions:
 
-- Two created namespaces Dev and Stage.
+- Two created namespaces dev and stage.
 - Kubeconfig is adjusted to be used for the two namespaces with the same user.
 - Kubeconfig is stored as a Secretfile inside Jenkins Credentials (Withcredentials) then the credentialID is used inside Jenkinsfile.
 - One stage for deployment on both namespaces with parameter "--namepsace" to override the default namespace configured inside the Chart with conditions according to the branch name the deployment will take place inside which namespace.
