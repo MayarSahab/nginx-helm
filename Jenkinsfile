@@ -8,7 +8,8 @@ pipeline {
                     container('helm') {  
           withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KUBECONFIG')]) {
           sh '''
-helm install nginx bitnami/nginx --namespace dev
+          export KUBECONFIG=$KUBECONFIG
+          helm install nginx bitnami/nginx --namespace dev
           '''
         }
         }
@@ -19,7 +20,8 @@ helm install nginx bitnami/nginx --namespace dev
                     container('helm') {  
           withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KUBECONFIG')]) {
           sh '''
-helm install nginx bitnami/nginx --namespace stage 
+          export KUBECONFIG=$KUBECONFIG
+          helm install nginx bitnami/nginx --namespace stage 
           '''
         }
         }
